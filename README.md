@@ -26,7 +26,7 @@ The package needs to be configured with your originator Id and API KEY
 (originator password):
 
 ``` js
-const payxpert = require('../lib/sdk')("10...", "xxx");
+const payxpert = require('payxpert')("10...", "xxx");
 const accountInformation = await payxpert.connect2pay.accountInformation();
 ...
 ```
