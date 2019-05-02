@@ -14,6 +14,12 @@ client side. This package should not be used for that purpose.
 
 See the [PayXpert API documentation](https://developers.payxpert.com).
 
+## Installation
+
+Install the package with:
+
+    npm i payxpert --save
+
 ## Usage
 
 The package needs to be configured with your originator Id and API KEY
