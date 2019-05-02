@@ -1,14 +1,25 @@
 {
   "name": "payxpert",
   "version": "1.0.0",
-  "description": "PayXpert API wrapper",
-  "main": "index.js",
+  "description": "PayXpert API wrapper in NodeJS",
+  "main": "lib/sdk.js",
   "scripts": {
     "test": "mocha"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "payxpert",
+    "payment processing",
+    "credit cards",
+    "api",
+    "wechat",
+    "alipay"
+  ],
+  "homepage": "https://github.com/PayXpert/connect2pay-nodejs-client",
+  "author": "PayXpert Technical Team <technical@stripe.com> (https://developers.payxpert.com)",
+  "contributors": [
+    "Andrey Sapunov <andrey.sapunov@payxpert.com>"
+  ],
+  "license": "Apache",
   "devDependencies": {
     "mocha": "^6.1.3"
   }
