@@ -28,7 +28,7 @@ describe('Account information', () => {
     });
 });
 
-describe('Payment operations', function() {
+describe('Payment operations', function () {
     this.timeout(5500);
 
     const amountForTest = 1000;
@@ -37,9 +37,9 @@ describe('Payment operations', function() {
         "shippingType": "physical",
         "paymentMethod": "alipay",
         "paymentMode": "single",
-        "amount":amountForTest,
-        "currency":"EUR",
-        "orderID":"NODEJS TEST"
+        "amount": amountForTest,
+        "currency": "EUR",
+        "orderID": "NODEJS TEST"
     };
 
     let responseCreatePayment = null;
@@ -63,7 +63,7 @@ describe('Payment operations', function() {
     });
 
     it('alipay direct payment call', async () => {
-        let response = await connect2pay.createAliPayDirectPayment(responseCreatePayment.customerToken, { mode: "pos" });
+        let response = await connect2pay.createAliPayDirectPayment(responseCreatePayment.customerToken, {mode: "pos"});
         assert.equal(response.code, "200");
 
         return new Promise(resolve => {
@@ -82,9 +82,9 @@ describe('WeChat direct payment', function () {
         "shippingType": "physical",
         "paymentMethod": "wechat",
         "paymentMode": "single",
-        "amount":amountForTest,
-        "currency":"EUR",
-        "orderID":"NODEJS TEST"
+        "amount": amountForTest,
+        "currency": "EUR",
+        "orderID": "NODEJS TEST"
     };
 
     let responseCreatePayment = null;
@@ -99,7 +99,7 @@ describe('WeChat direct payment', function () {
     });
 
     it('wechat direct payment call', async () => {
-        let response = await connect2pay.createWeChatDirectPayment(responseCreatePayment.customerToken, { mode: "native" });
+        let response = await connect2pay.createWeChatDirectPayment(responseCreatePayment.customerToken, {mode: "native"});
         assert.equal(response.code, "200");
 
         return new Promise(resolve => {
@@ -125,4 +125,39 @@ describe('Encryption', () => {
         assert.equal("Not processed", result.status);
     });
 
+});
+
+describe('Prepare payment', () => {
+    const body = {
+        "shippingType": "physical",
+        "paymentMethod": "CreditCard",
+        "paymentMode": "single",
+        "amount": 5000,
+        "currency": "EUR",
+        "orderID": "NODEJS TEST",
+        "operation": "authorize"
+    };
+
+    it('create authorization', async () => {
+        let responseCreatePayment = await connect2pay.createPayment(body);
+        assert.equal(responseCreatePayment.code, "200");
+
+        console.log("Payment created. Link to payment: " + responseCreatePayment.customerRedirectURL);
+        console.log("After transaction will be done you can execute export PXP_TRANSACTION_ID=.... and perform capture test");
+
+        return new Promise(resolve => {
+            resolve();
+        })
+    });
+
+    it('performing capture', async () => {
+        if (testData.getTransactionId() !== "") {
+            let responseCapture = await connect2pay.captureTransaction(testData.getTransactionId(), 4000);
+            assert.equal(responseCapture.code, "000");
+        }
+
+        return new Promise(resolve => {
+            resolve();
+        })
+    });
 });

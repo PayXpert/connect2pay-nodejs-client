@@ -8,6 +8,10 @@ module.exports = {
 
     getOriginatorPassword: () => {
         return process.env.PXP_ORIGINATOR_PASSWORD || ''
+    },
+
+    getTransactionId: () => {
+        return process.env.PXP_TRANSACTION_ID || ''
     }
 
 };

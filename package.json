@@ -1,6 +1,6 @@
 {
   "name": "payxpert",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "PayXpert API wrapper in NodeJS",
   "main": "lib/sdk.js",
   "scripts": {
