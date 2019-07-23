@@ -1,6 +1,6 @@
 {
   "name": "payxpert",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "PayXpert API wrapper in NodeJS",
   "main": "lib/sdk.js",
   "scripts": {
@@ -15,12 +15,12 @@
     "alipay"
   ],
   "homepage": "https://github.com/PayXpert/connect2pay-nodejs-client",
-  "author": "PayXpert Technical Team <technical@stripe.com> (https://developers.payxpert.com)",
+  "author": "PayXpert Technical Team <technical@payxpert.com> (https://developers.payxpert.com)",
   "contributors": [
     "Andrey Sapunov <andrey.sapunov@payxpert.com>"
   ],
-  "license": "Apache",
+  "license": "Apache-2.0",
   "devDependencies": {
-    "mocha": "^6.1.3"
+    "mocha": "^6.2.0"
   }
 }
