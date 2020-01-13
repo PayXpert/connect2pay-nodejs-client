@@ -161,3 +161,23 @@ describe('Prepare payment', () => {
         })
     });
 });
+
+describe("Export transactions", () => {
+
+    it('test export transactions from Connect2Pay', async () => {
+        let currentTimestamp = Math.floor(Date.now() / 1000);
+
+        let requestBody = {
+            startTime: currentTimestamp - (3600 * 5),
+            endTime: currentTimestamp + (3600 * 5)
+        };
+
+        let exportResponse = await connect2pay.exportTransactionsList(requestBody);
+        assert.equal(Array.isArray(exportResponse.transactions), true);
+
+        return new Promise(resolve => {
+            resolve();
+        })
+    });
+
+});
