@@ -34,10 +34,42 @@ describe('Payment operations', function () {
     const amountForTest = 1000;
 
     const body = {
-        "shippingType": "physical",
+        "shopper": {
+          "name":"John Doe",
+            "email":"john@whitehouse.gov",
+            "address1":"Main Street",
+            "zipcode":"1235",
+            "city":"New York",
+            "state":"NY",
+            "countryCode":"US",
+            "homePhonePrefix":"212",
+            "homePhone":"123456789",
+            "account": {
+              "age":"01",
+                "date":"20220311",
+                "lastChange":"01",
+                "lastChangeDate":"20220311",
+                "pwChange":"01",
+                "pwChangeDate":"20220311",
+                "shipInfoAge":"01",
+                "shipInfoDate":"20220311",
+                "transLastDay":1,
+                "transLastYear":1,
+                "cardsAddLastDay":1,
+                "orderSixMonths":1,
+                "suspicious":false,
+                "namesMatching":true,
+                "paymentMeanAge":"02",
+                "paymentMeanDate":"20220311"
+            }
+        },
+        "order": {
+            "id":"12345",
+            "type":"01"
+        },
+        "amount": amountForTest,
         "paymentMethod": "alipay",
         "paymentMode": "single",
-        "amount": amountForTest,
         "currency": "EUR",
         "orderID": "NODEJS TEST"
     };
@@ -79,10 +111,42 @@ describe('WeChat direct payment', function () {
     const amountForTest = 1000;
 
     const body = {
-        "shippingType": "physical",
+        "shopper": {
+            "name":"John Doe",
+            "email":"john@whitehouse.gov",
+            "address1":"Main Street",
+            "zipcode":"1235",
+            "city":"New York",
+            "state":"NY",
+            "countryCode":"US",
+            "homePhonePrefix":"212",
+            "homePhone":"123456789",
+            "account": {
+                "age":"01",
+                "date":"20220311",
+                "lastChange":"01",
+                "lastChangeDate":"20220311",
+                "pwChange":"01",
+                "pwChangeDate":"20220311",
+                "shipInfoAge":"01",
+                "shipInfoDate":"20220311",
+                "transLastDay":1,
+                "transLastYear":1,
+                "cardsAddLastDay":1,
+                "orderSixMonths":1,
+                "suspicious":false,
+                "namesMatching":true,
+                "paymentMeanAge":"02",
+                "paymentMeanDate":"20220311"
+            }
+        },
+        "order": {
+            "id":"12345",
+            "type":"01"
+        },
+        "amount": amountForTest,
         "paymentMethod": "wechat",
         "paymentMode": "single",
-        "amount": amountForTest,
         "currency": "EUR",
         "orderID": "NODEJS TEST"
     };
@@ -129,7 +193,39 @@ describe('Encryption', () => {
 
 describe('Prepare payment', () => {
     const body = {
-        "shippingType": "physical",
+        "shopper": {
+            "name":"John Doe",
+            "email":"john@whitehouse.gov",
+            "address1":"Main Street",
+            "zipcode":"1235",
+            "city":"New York",
+            "state":"NY",
+            "countryCode":"US",
+            "homePhonePrefix":"212",
+            "homePhone":"123456789",
+            "account": {
+                "age":"01",
+                "date":"20220311",
+                "lastChange":"01",
+                "lastChangeDate":"20220311",
+                "pwChange":"01",
+                "pwChangeDate":"20220311",
+                "shipInfoAge":"01",
+                "shipInfoDate":"20220311",
+                "transLastDay":1,
+                "transLastYear":1,
+                "cardsAddLastDay":1,
+                "orderSixMonths":1,
+                "suspicious":false,
+                "namesMatching":true,
+                "paymentMeanAge":"02",
+                "paymentMeanDate":"20220311"
+            }
+        },
+        "order": {
+            "id":"12345",
+            "type":"01"
+        },
         "paymentMethod": "CreditCard",
         "paymentMode": "single",
         "amount": 5000,

@@ -142,12 +142,7 @@ describe("credit card operations", () => {
     });
 
     it('test credit funds transfer', async () => {
-        let cftBody = {
-            transactionID: responseSale.transactionID,
-            amount: amountForTest / 2
-        };
-
-        let responseCFT = await gateway.creditFundTransfer(responseSale.transactionID, cftBody);
+        let responseCFT = await gateway.creditFundTransfer(body);
         assert.equal(responseCFT.errorCode, "000");
 
         return new Promise(resolve => {
